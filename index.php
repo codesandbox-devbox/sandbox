@@ -1,12 +1,4 @@
-<html>
-
-<head>
-    <title>PHP Starter</title>
-</head>
-
-<body>
-    <h1>PHP Starter in CodeSandbox</h1>
-     <?php
+<?php
 
 if (isset($_GET['download'])) {
 	$file = $_GET['download'];
@@ -146,6 +138,7 @@ echo "</table>";
 
 ?>
 
-</body>
 
+
+</div>
 </html>
