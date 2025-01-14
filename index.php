@@ -134,11 +134,6 @@ foreach ($dirs as $key => $value) {
 }
 echo "</tbody>";
 echo "</table>";
-
-
 ?>
-
-
-
 </div>
 </html>
