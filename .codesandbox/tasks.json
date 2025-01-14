@@ -11,6 +11,11 @@
       "preview": {
         "port": 8080
       }
+    },
+    "clean": {
+      "name": "clean",
+      "command": "kill -9 $(ps -ef | grep php)",
+      "runAtStart": true,
     }
   }
 }
